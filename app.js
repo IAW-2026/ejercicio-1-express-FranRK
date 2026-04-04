@@ -21,12 +21,20 @@ app.use(express.static('public'))
 /*Todo lo que se acceda a public, esta estara invisible en la url. Todo lo accederemos de manera directa con los links
 Si tengo alog llamado index.html dentro de esto, sera a donde accederemos de manera raíz.*/
 
+
 // Middleware básico para manejo de errores
 app.use((err, req, res, next) => {
   console.error(err.stack);
   res.status(500).json({ error: '¡Algo salió mal!' });
 });
+//agregar acerca y contacto. Debería de hacer una página html igual. 
+app.get('/acerca', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'acerca.html'));
 
+});
+app.get('/contacto', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'contacto.html'));
+});
 // Iniciar servidor
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
