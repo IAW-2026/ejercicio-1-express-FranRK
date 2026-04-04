@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
   // Añadir evento al botón "Comenzar"
-  const btn = document.querySelector('.btn');
-  btn.addEventListener('click', (e) => {
+  const startBtn = document.getElementById('comenzar-btn');
+  startBtn.addEventListener('click', (e) => {
     e.preventDefault();
     alert('¡Bienvenido! Has hecho clic en el botón Comenzar.');
   });
